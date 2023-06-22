@@ -19,19 +19,19 @@ Docker image to store custom themes and extensions for keycloak. This is used to
 
 Here is a small example of using init containers to install new extensions and themes to your keycloak server.
 
-#initContainers:
-#  - name: custom-themes
-#    image: <your-image>
-#    command: [ "sh", "-c", "cp -vR /keycloak/themes/* /themes" ]
-#    volumeMounts:
-#      - name: custom-themes
-#        mountPoint: /themes
-#  - name: custom-extensions
-#    image: ghcr.io/couchpartygames/
-#    command: [ "sh", "-c", "cp -vR /keycloak/extensions/* /extensions" ]
-#    volumeMounts:
-#      - name: custom-extensions
-#        mountPoint: /extensions
+    initContainers:
+      - name: custom-themes
+        image: <your-image>
+        command: [ "sh", "-c", "cp -vR /keycloak/themes/* /themes" ]
+        volumeMounts:
+          - name: custom-themes
+            mountPoint: /themes
+      - name: custom-extensions
+        image: ghcr.io/couchpartygames/
+        command: [ "sh", "-c", "cp -vR /keycloak/extensions/* /extensions" ]
+        volumeMounts:
+          - name: custom-extensions
+            mountPoint: /extensions
 
     extraVolumes:
       - name: custom-themes
