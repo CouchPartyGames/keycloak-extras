@@ -1,3 +1,5 @@
 itch/target
 steam/target
 epic/target
+
+*.swp
