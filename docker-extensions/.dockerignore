@@ -1,0 +1,3 @@
+# ignore any file not ending with .jar
+!themes/*.jar
+!extensions/*.jar
