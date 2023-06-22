@@ -1,14 +1,13 @@
-name: Maven CI/CD
+name: build-packages
 
 on:
- push:
-    branches: [ master ]
+  push:
+    branches: [ main ]
   pull_request:
-    branches: [ master ]
+    branches: [ main ]
 
 jobs:
-  build_steam:
-
+  build-steam-package:
     runs-on: ubuntu-latest
 
     steps:
