@@ -102,7 +102,7 @@
     <repository>
       <id>github</id>
       <name>GitHub Packages</name>
-      <url>https://maven.pkg.github.com/couchpartygames/keycloak-steam-oidc</url>
+      <url>https://maven.pkg.github.com/couchpartygames/keycloak-spi</url>
     </repository>
   </distributionManagement>
 </project>
