@@ -10,14 +10,14 @@ Simple docker image used to add themes and providers to keycloak's bitnami chart
 Docker image to store custom themes and providers for keycloak. This is used to in container init images to install themes/extensions for keycloak chart.
 
 
+	export TAG=YOUR_TAG
 	wget -O providers/<some-extension>.jar <url>
-    docker build . -t keycloak-extras:<tag>
+    docker build . -t keycloak-extras:$TAG
 
 
 Push changes to Github Repository
 
     export CR_PAT=YOUR_TOKEN
-	export TAG=YOUR_TAG
     echo $CR_PAT | docker login ghcr.io -u USERNAME --password-stdin
 
     docker tag keycloak-extras:$TAG ghcr.io/couchpartygames/keycloak-extras:$TAG
