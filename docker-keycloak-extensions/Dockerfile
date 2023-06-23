@@ -1,15 +1,14 @@
 FROM alpine:latest
 
-RUN mkdir -p /keycloak/themes /keycloak/extensions && \
+LABEL org.opencontainers.image.source https://github.com/couchpartygames/keycloak-extras
+
+RUN mkdir -p /keycloak/providers && \
 	chown -R nobody:nobody /keycloak/
 
 USER nobody
 
-	# Add Themes
-COPY themes/ /keycloak/themes
-
 	# Add Extensions
-COPY extensions/ /keycloak/extensions
+COPY providers/ /keycloak/providers
 
 
 WORKDIR /keycloak

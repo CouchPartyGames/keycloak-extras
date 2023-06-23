@@ -1,5 +1,5 @@
 # keycloak-extras
 
-Custom extensions and themes
+Custom providers and themes
 
 - OIDC for steam
