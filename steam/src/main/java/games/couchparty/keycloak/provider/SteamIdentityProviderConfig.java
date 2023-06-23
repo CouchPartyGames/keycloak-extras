@@ -4,6 +4,9 @@ import org.keycloak.models.IdentityProviderModel;
 
 public class SteamIdentityProviderConfig extends IdentityProviderModel {
 
+    public SteamIdentityProviderConfig() {
+    }
+
     public SteamIdentityProviderConfig(IdentityProviderModel model) {
         super(model);
     }

@@ -103,11 +103,13 @@ public class SteamIdentityProvider extends AbstractIdentityProvider<SteamIdentit
             try {
                 String response = request.asString();
                 if (!Pattern.compile(".*is_valid\\s*:\\s*true.*", Pattern.DOTALL).matcher(response).matches()) {
-                    return callback.error("could not verify authentication with Steam", Messages.IDENTITY_PROVIDER_UNEXPECTED_ERROR);
+                    return callback.error("could not verify authentication with Steam");
+                    //return callback.error("could not verify authentication with Steam", Messages.IDENTITY_PROVIDER_UNEXPECTED_ERROR);
                 }
             } catch (IOException e) {
                 e.printStackTrace();
-                return callback.error(e.getMessage(), Messages.IDENTITY_PROVIDER_UNEXPECTED_ERROR);
+                return callback.error(e.getMessage());
+                //return callback.error(e.getMessage(), Messages.IDENTITY_PROVIDER_UNEXPECTED_ERROR);
             }
 
             Pattern p = Pattern.compile("https?://steamcommunity.com/openid/id/([0-9]{17,25})");
@@ -116,7 +118,8 @@ public class SteamIdentityProvider extends AbstractIdentityProvider<SteamIdentit
             if (matcher.matches()) {
                 steamId = matcher.group(1);
             } else {
-                return callback.error("could not determine SteamID", Messages.IDENTITY_PROVIDER_UNEXPECTED_ERROR);
+                return callback.error("could not determine SteamID");
+                //return callback.error("could not determine SteamID", Messages.IDENTITY_PROVIDER_UNEXPECTED_ERROR);
             }
 
             BrokeredIdentityContext federatedIdentity = new BrokeredIdentityContext(claimedId);
@@ -124,7 +127,7 @@ public class SteamIdentityProvider extends AbstractIdentityProvider<SteamIdentit
             federatedIdentity.setIdpConfig(getConfig());
             federatedIdentity.setBrokerUserId(steamId);
             federatedIdentity.setUsername(steamId);
-            federatedIdentity.setCode(state);
+            //federatedIdentity.setCode(state);
 
             federatedIdentity.setUserAttribute("steamId", steamId);
 
