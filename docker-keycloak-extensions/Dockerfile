@@ -10,5 +10,4 @@ USER nobody
 	# Add Extensions
 COPY providers/ /keycloak/providers
 
-
 WORKDIR /keycloak

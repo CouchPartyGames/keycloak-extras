@@ -2,12 +2,12 @@
 
 ## Purpose
 
-Simple docker image used to add themes and extensions to keycloak's bitnami chart.
+Simple docker image used to add themes and providers to keycloak's bitnami chart.
 
 
 ## Docker 
 
-Docker image to store custom themes and extensions for keycloak. This is used to in container init images to install themes/extensions for keycloak chart.
+Docker image to store custom themes and providers for keycloak. This is used to in container init images to install themes/extensions for keycloak chart.
 
 
 	wget -O providers/<some-extension>.jar <url>
@@ -32,6 +32,13 @@ Push changes to Github Repository
 
 Here is a small example of using init containers (in values.yaml) to install new extensions and themes to your keycloak server.
 https://artifacthub.io/packages/helm/bitnami/keycloak
+
+
+    initdbScripts:
+      add-providers-themes.sh: |
+        #!/bin/bash
+        echo "Installing Themes/Providers"
+        cp -v /providers/*.jar /opt/bitnami/keycloak/providers
 
     initContainers:
       - name: custom-providers
