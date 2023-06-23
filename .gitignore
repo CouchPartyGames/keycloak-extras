@@ -3,3 +3,4 @@ steam/target
 epic/target
 
 *.swp
+**/.DS_Store

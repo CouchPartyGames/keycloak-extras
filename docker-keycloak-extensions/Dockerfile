@@ -9,4 +9,7 @@ USER nobody
 COPY themes/ /keycloak/themes
 
 	# Add Extensions
-COPY extensions/ /keycloak/themes
+COPY extensions/ /keycloak/extensions
+
+
+WORKDIR /keycloak

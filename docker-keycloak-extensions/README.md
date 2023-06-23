@@ -12,15 +12,18 @@ Docker image to store custom themes and extensions for keycloak. This is used to
 
 	wget -O extensions/<some-extension>.jar <url>
 	wget -O themes/<some-theme>.jar <url>
-    docker build . -t <name>:<tag>
+    docker build . -t keycloak-extras:<tag>
 
 
 Push changes to Github Repository
 
     export CR_PAT=YOUR_TOKEN
+	export TAG=YOUR_TAG
     echo $CR_PAT | docker login ghcr.io -u USERNAME --password-stdin
-    docker push ghcr.io/couchpartygames/IMAGE_NAME:latest
-    docker push ghcr.io/couchpartygames/IMAGE_NAME:latest
+    docker tag keycloak-extras:$TAG ghcr.io/couchpartygames/keycloak-extras:$TAG
+    docker tag keycloak-extras:$TAG ghcr.io/couchpartygames/keycloak-extras:latest
+    docker push ghcr.io/couchpartygames/keycloak-extras:$TAG
+    docker push ghcr.io/couchpartygames/keycloak-extras:latest
 
 
 ## Keycloak Bitnami Chart
