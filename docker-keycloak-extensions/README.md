@@ -38,12 +38,12 @@ https://artifacthub.io/packages/helm/bitnami/keycloak
       add-providers-themes.sh: |
         #!/bin/bash
         echo "Installing Themes/Providers"
-        cp -v /providers/*.jar /opt/bitnami/keycloak/providers
+        cp -v /providers/*.jar /opt/bitnami/keycloak/providers 2> /dev/null || :
 
     initContainers:
       - name: custom-providers
         image: ghcr.io/couchpartygames/keycloak-extras:latest
-        command: [ "sh", "-c", "cp -vR /keycloak/providers/* /providers" ]
+        command: [ "sh", "-c", "cp -v /keycloak/providers/*.jar /providers 2> /dev/null || : " ]
         volumeMounts:
           - name: custom-providers
             mountPoint: /providers
