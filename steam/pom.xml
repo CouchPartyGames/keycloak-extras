@@ -6,11 +6,11 @@
 
   <groupId>games.couchparty.keycloak</groupId>
   <artifactId>keycloak-steam-oidc</artifactId>
-  <version>1.0.0</version>
+  <version>1.0.1</version>
 
   <name>steam</name>
   <packaging>jar</packaging>
-  <url>https://github.com/CouchPartyGames/keycloak-spi</url>
+  <url>https://github.com/CouchPartyGames/keycloak-extras</url>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -98,11 +98,13 @@
   </build>
 
 
+  <!-- Post to Github -->
   <distributionManagement>
     <repository>
       <id>github</id>
       <name>GitHub Packages</name>
-      <url>https://maven.pkg.github.com/couchpartygames/keycloak-spi</url>
+      <url>https://maven.pkg.github.com/couchpartygames/keycloak-extras</url>
     </repository>
   </distributionManagement>
+
 </project>

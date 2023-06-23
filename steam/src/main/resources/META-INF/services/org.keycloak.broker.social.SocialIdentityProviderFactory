@@ -1,1 +1,1 @@
-games.couchparty.keycloak.provider.ItchIdentityProviderFactory
+games.couchparty.keycloak.provider.SteamIdentityProviderFactory
