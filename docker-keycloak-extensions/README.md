@@ -2,7 +2,7 @@
 
 ## Purpose
 
-Use docker image to extend both the functionality and theme of keycloak using Init Container functionality of kubernetes.
+Simple docker image used to add themes and extensions to keycloak's bitnami chart.
 
 
 ## Docker 
@@ -15,19 +15,29 @@ Docker image to store custom themes and extensions for keycloak. This is used to
     docker build . -t <name>:<tag>
 
 
-#### Keycloak Bitnami Chart
+Push changes to Github Repository
 
-Here is a small example of using init containers to install new extensions and themes to your keycloak server.
+    export CR_PAT=YOUR_TOKEN
+    echo $CR_PAT | docker login ghcr.io -u USERNAME --password-stdin
+    docker push ghcr.io/couchpartygames/IMAGE_NAME:latest
+    docker push ghcr.io/couchpartygames/IMAGE_NAME:latest
+
+
+## Keycloak Bitnami Chart
+
+
+Here is a small example of using init containers (in values.yaml) to install new extensions and themes to your keycloak server.
+https://artifacthub.io/packages/helm/bitnami/keycloak
 
     initContainers:
       - name: custom-themes
-        image: <your-image>
+        image: ghcr.io/couchpartygames/keycloak-extras:latest
         command: [ "sh", "-c", "cp -vR /keycloak/themes/* /themes" ]
         volumeMounts:
           - name: custom-themes
             mountPoint: /themes
       - name: custom-extensions
-        image: ghcr.io/couchpartygames/
+        image: ghcr.io/couchpartygames/keycloak-extras:latest
         command: [ "sh", "-c", "cp -vR /keycloak/extensions/* /extensions" ]
         volumeMounts:
           - name: custom-extensions
