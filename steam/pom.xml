@@ -6,7 +6,7 @@
 
   <groupId>games.couchparty.keycloak</groupId>
   <artifactId>keycloak-steam-oidc</artifactId>
-  <version>1.0.3</version>
+  <version>1.0.4</version>
 
   <name>steam</name>
   <packaging>jar</packaging>
@@ -22,25 +22,25 @@
     <dependency>
       <groupId>org.keycloak</groupId>
       <artifactId>keycloak-core</artifactId>
-      <version>21.0.0</version>
+      <version>21.1.1</version>
       <scope>provided</scope>
     </dependency>
     <dependency>
 	  <groupId>org.keycloak</groupId>
 	  <artifactId>keycloak-services</artifactId>
-	  <version>21.0.0</version>
+	  <version>21.1.1</version>
 	  <scope>provided</scope>
     </dependency>
     <dependency>
 	  <groupId>org.keycloak</groupId>
 	  <artifactId>keycloak-server-spi</artifactId>
-	  <version>21.0.0</version>
+	  <version>21.1.1</version>
 	  <scope>provided</scope>
     </dependency>
     <dependency>
 	  <groupId>org.keycloak</groupId>
 	  <artifactId>keycloak-server-spi-private</artifactId>
-	  <version>21.0.0</version>
+	  <version>21.1.1</version>
 	  <scope>provided</scope>
     </dependency>
   </dependencies>
